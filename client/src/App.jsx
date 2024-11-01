@@ -1,15 +1,19 @@
 import { useState } from 'react'
 
 import './styles/App.css'
+import Navigation from './components/Navigation'
+import Hero from './components/Hero'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className='w-[100%] bg-blue-300'>
-      <p>Sample value</p>
-
+    <div>
+      <Navigation ></Navigation>
+      <Hero></Hero>
+      <Hero></Hero>
     </div>
+
   )
 }
 
