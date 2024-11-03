@@ -1,16 +1,14 @@
 const express = require('express');
-const quizzRoutes = require('./src/quizz/routes'); //importing the router with many routes or api end points
+const quizzRoutes = require('./src/quizz/routes');
+const cors = require('cors');
 
 const app = express();
 const port = 3000;
 
 app.use(express.json());
+app.use(cors());
 
-app.get("/", (req, res) => {
-    res.send("Hello Worlsd");
-})
-
-app.use("/api/v1/quizz", quizzRoutes); //so here /api/v1/quizz + (path in routes.js )will execute that function inside quizzRoutes(routes.js)
+app.use("/api/v2/quizz", quizzRoutes)
 
 app.listen(port, () => {
     console.log(`App listening on port ${port}`);
