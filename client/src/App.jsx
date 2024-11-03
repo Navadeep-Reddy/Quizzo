@@ -1,18 +1,16 @@
-import { useState } from 'react'
-
-import './styles/App.css'
-import Navigation from './components/Navigation'
-import Hero from './components/Hero'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import Home from './pages/Home'
+import Attend from './pages/Attend'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div>
-      <Navigation ></Navigation>
-      <Hero></Hero>
-      <Hero></Hero>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route index element = {<Home/>}/>
+        <Route path = '/attend' element = {<Attend/>} />
+      </Routes>
+    </BrowserRouter>
 
   )
 }
