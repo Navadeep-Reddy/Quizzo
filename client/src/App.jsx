@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route index element = {<Home/>}/>
-        <Route path = '/attend' element = {<Attend/>} />
+        <Route path = '/attend/:quizz_id' element = {<Attend/>} />
       </Routes>
     </BrowserRouter>
 
