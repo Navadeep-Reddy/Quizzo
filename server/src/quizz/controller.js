@@ -8,6 +8,16 @@ const getAllQuizzes = (req, res) => {
     })
 }
 
+const getQuizQuestions = (req, res) => {
+    const id = parseInt(req.params.id)
+
+    pool.query(queries.getQuizQuestions, [id], (error, results) => {
+        if (error) throw error;
+        res.json(results.rows);
+    })
+}
+
 module.exports = {
     getAllQuizzes,
+    getQuizQuestions,
 } 
