@@ -1,11 +1,26 @@
-import React from 'react'
+import {React, useEffect, useState} from 'react'
 import Navigation_Attend from '../components/Navigation_Attend'
 import { useParams } from 'react-router-dom'
+import axios from 'axios';
 
 const Attend = () => {
-  const {quizz_id} = useParams();
+  const [questions, setQuestions] = useState([]);
+  
+  useEffect(() => {
 
-  console.log(quizz_id)
+    const fetchQuestions = async () => {
+      const response = await axios.get('http://localhost:3000/api/v2/quizz/questions/1');
+      setQuestions(response.data)
+    }
+
+    fetchQuestions();
+
+
+  }, [])
+  
+
+
+  console.log(questions)
 
   return (
     <>
