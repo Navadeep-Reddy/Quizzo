@@ -8,6 +8,8 @@ router.get('/questions/:id', controller.getQuizQuestions);
 
 router.get('/options/:id', controller.getQuestionOptions);
 
+router.get('/title/:id', controller.getTitle);
+
 
 
 module.exports = router;

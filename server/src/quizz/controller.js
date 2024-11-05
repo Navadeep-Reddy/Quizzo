@@ -26,9 +26,20 @@ const getQuestionOptions = (req, res) => {
     })
 }
 
+const getTitle = (req, res) => {
+    const id = parseInt(req.params.id)
+
+    pool.query(queries.getTitle, [id], (error, results) => {
+        if (error) throw error;
+        res.json(results.rows);
+    })
+    
+}
+
 
 module.exports = {
     getAllQuizzes,
     getQuizQuestions,
     getQuestionOptions,
+    getTitle,
 } 
