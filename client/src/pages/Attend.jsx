@@ -126,7 +126,7 @@ const Attend = () => {
             )
           )}
           <div className='w-[92%] mx-auto flex '>
-            <Button className='h-10 border-2 text-GreenBrown border-GreenBrown bg-CoralOrange px-5 rounded-md hover:scale-105 duration-300 font-semibold '>Submit</Button>
+            <button className='h-10 border-2 text-GreenBrown border-GreenBrown bg-CoralOrange px-5 rounded-md hover:scale-105 duration-300 font-semibold '>Submit</button>
           </div>
           
         </form>
