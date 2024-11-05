@@ -36,10 +36,18 @@ const getTitle = (req, res) => {
     
 }
 
+const getAllUsers = (req, res) => {
+    pool.query(queries.getAllUsers, (error, results) => {
+        if (error) throw error;
+        res.json(results.rows);
+    })
+}
+
 
 module.exports = {
     getAllQuizzes,
     getQuizQuestions,
     getQuestionOptions,
     getTitle,
+    getAllUsers,
 } 

@@ -10,6 +10,8 @@ router.get('/options/:id', controller.getQuestionOptions);
 
 router.get('/title/:id', controller.getTitle);
 
+router.get('/users', controller.getAllUsers);
+
 
 
 module.exports = router;
