@@ -2,7 +2,6 @@ import { React, useState, useEffect } from 'react';
 import Navigation_Attend from '../components/Navigation_Attend';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { Button } from 'react-scroll';
 
 const Attend = () => {
   const [questions, setQuestions] = useState([]);
@@ -10,6 +9,7 @@ const Attend = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const { quizz_id } = useParams();
+  const {user_id} = useParams();
 
   useEffect(() => {
     const fetchQuestionsOptions = async () => {

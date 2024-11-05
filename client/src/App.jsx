@@ -10,8 +10,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/login" replace />} /> {/* Redirects root to /login */}
         <Route path="/login" element={<Login />} />
-        <Route path="/attend/:quizz_id" element={<Attend />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/attend/:user_id/:quizz_id" element={<Attend />} />
+        <Route path="/home/:user_id" element={<Home />} />
       </Routes>
     </BrowserRouter>
   );

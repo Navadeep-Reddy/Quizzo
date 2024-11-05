@@ -1,10 +1,12 @@
 import { React, useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Available = () => {
   const [quizzes, setQuizzes] = useState([]);
   const navigate = useNavigate();
+  const { user_id } = useParams();
+
   
   useEffect(() => {
     const fetchQuizz = async () => {
@@ -20,7 +22,7 @@ const Available = () => {
   }, []);
 
   const handleClick = (quizzID) => {
-    navigate(`/attend/${quizzID}`);
+    navigate(`/attend/${user_id }/${quizzID}`);
   };
 
   return (
