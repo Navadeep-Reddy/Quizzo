@@ -9,6 +9,12 @@ const getTitle = "SELECT title FROM quizzes WHERE quiz_id = $1"
 
 const getAllUsers = "SELECT * FROM users"
 
+const postSubmission = "INSERT INTO quiz_submissions (quiz_id, user_id, score) VALUES ($1, $2, $3)"
+
+//sample POST
+const addUser = "INSERT INTO users (name , email, password, role) VALUES ($1, $2, $3, $4)"
+
+
 
 module.exports = {
     getAllQuizzes,
@@ -16,4 +22,6 @@ module.exports = {
     getQuestionOptions,
     getTitle,
     getAllUsers,
+    postSubmission,
+    addUser,
 }

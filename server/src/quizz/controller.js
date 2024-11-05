@@ -43,6 +43,29 @@ const getAllUsers = (req, res) => {
     })
 }
 
+const postSubmission = (req,res) => {
+    const {quiz_id, user_id, score} = req.body;
+    pool.query(queries.postSubmission, [quiz_id, user_id, score], (error, results) => {
+        if (error) throw error;
+        res.send("Successfully Added Row")
+    } )
+}
+
+
+//sample working
+const addUser = (req, res) => {                               
+    const {name, email, password, role} = req.body // Javascript Destructuring where it does name = req.body.name and so on
+    
+        
+    pool.query(queries.addUser, [name, email, password, role], (error, results) => {
+        if (error) throw error;
+        //204 means that user has been created successfully
+        res.status(204).send("User created successfully")
+    })
+
+}
+
+
 
 module.exports = {
     getAllQuizzes,
@@ -50,4 +73,6 @@ module.exports = {
     getQuestionOptions,
     getTitle,
     getAllUsers,
+    postSubmission,
+    addUser,
 } 

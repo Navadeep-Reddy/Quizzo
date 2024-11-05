@@ -12,6 +12,10 @@ router.get('/title/:id', controller.getTitle);
 
 router.get('/users', controller.getAllUsers);
 
+router.post('/sub',controller.postSubmission);
+
+router.post('/add', controller.addUser)
+
 
 
 module.exports = router;
