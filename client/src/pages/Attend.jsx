@@ -2,10 +2,11 @@ import { React, useState, useEffect } from 'react';
 import Navigation_Attend from '../components/Navigation_Attend';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { Button } from 'react-scroll';
 
 const Attend = () => {
   const [questions, setQuestions] = useState([]);
-  const [title, setTitle] = useState("Loading Quiz...");
+  const [titleobj, setTitle] = useState("Loading Quiz...");
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const { quizz_id } = useParams();
@@ -18,7 +19,7 @@ const Attend = () => {
 
         // Fetch quiz title
         const titleResponse = await axios.get(`http://localhost:3000/api/v2/quizz/title/${quizz_id}`);
-        setTitle(titleResponse.data.title);
+        setTitle(titleResponse.data);
 
         // Fetch questions
         const questionsResponse = await axios.get(`http://localhost:3000/api/v2/quizz/questions/${quizz_id}`);
@@ -50,7 +51,7 @@ const Attend = () => {
 
   const handleOptionChange = (questionId, optionId) => {
     // Handle radio button changes here
-    console.log(`Question ${questionId}, Option selected: ${optionId}`);
+    //console.log(`Question ${questionId}, Option selected: ${optionId}`);
   };
 
   if (error) {
@@ -67,13 +68,16 @@ const Attend = () => {
     );
   }
 
+
   return (
     <>
       <Navigation_Attend />
       <div className='h-[100vh] w-full bg-gradient-to-b from-PopYellow to-KindaWhite flex items-center'>
-        <div className='Quizz w-[80%] mx-auto h-[80%] overflow-y-auto'>
+
+
+        <form className='Quizz w-[80%] mx-auto h-[80%] overflow-y-auto'>
           <h1 className='text-[50px] font-extrabold text-GreenBrown mb-10'>
-            {title}
+            {titleobj[0].title}
           </h1>
           
           {isLoading ? (
@@ -121,7 +125,13 @@ const Attend = () => {
               ))
             )
           )}
-        </div>
+          <div className='w-[92%] mx-auto flex '>
+            <Button className='h-10 border-2 text-GreenBrown border-GreenBrown bg-CoralOrange px-5 rounded-md hover:scale-105 duration-300 font-semibold '>Submit</Button>
+          </div>
+          
+        </form>
+
+
       </div>
     </>
   );
