@@ -1,6 +1,11 @@
 # Quizzo
 Your destination to attend exciting new quizzes along with statistics calculation using DBMS 
 
+# How to run
+Configure the connection pool in db.js
+Run server.js in server directory 
+Run the react app
+
 # DML For Required Tables
 
 CREATE TABLE users (
