@@ -3,7 +3,7 @@ Your destination to attend exciting new quizzes along with statistics calculatio
 
 # How to run
 Configure the connection pool in db.js <br>
-Run server.js in server directory 
+Run server.js in server directory <br>
 Run the react app
 
 # DML For Required Tables
