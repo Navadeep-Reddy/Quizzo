@@ -1,7 +1,7 @@
-#Quizzo
+# Quizzo
 Your destination to attend exciting new quizzes along with statistics calculation using DBMS 
 
-#DML For Required Tables
+# DML For Required Tables
 
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
