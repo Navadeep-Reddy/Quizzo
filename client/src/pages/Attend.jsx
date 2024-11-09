@@ -8,8 +8,13 @@ const Attend = () => {
   const [titleobj, setTitle] = useState("Loading Quiz...");
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedOptions, setSelectedOptions] = useState({});
+
+  //required id for post request from url
   const { quizz_id } = useParams();
   const {user_id} = useParams();
+
+  
 
   useEffect(() => {
     const fetchQuestionsOptions = async () => {
@@ -50,9 +55,40 @@ const Attend = () => {
   }, [quizz_id]);
 
   const handleOptionChange = (questionId, optionId) => {
-    // Handle radio button changes here
-    //console.log(`Question ${questionId}, Option selected: ${optionId}`);
+    setSelectedOptions((prevSelections) => ({
+      ...prevSelections,
+      [questionId]: optionId,
+    }));
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    let score = 0;
+    questions.forEach((question) => {
+      const selectedOption = selectedOptions[question.question_id];
+      const correctOption = question.options.find((option) => option.is_correct);
+
+      if (correctOption && selectedOption == correctOption.option_id){
+        score += 1;
+      }
+    })
+
+    //json object for post request
+    const obj = {
+      "quiz_id": quizz_id,
+      "user_id": user_id,
+      "score": score
+    }
+
+    try{
+      await axios.post("http://localhost:3000/api/v2/quizz/sub", obj)
+    }
+    catch (error){
+      console.error("Error submitting quiz", error)
+    }
+
+  }
+  
 
   if (error) {
     return (
@@ -126,7 +162,7 @@ const Attend = () => {
             )
           )}
           <div className='w-[92%] mx-auto flex '>
-            <button className='h-10 border-2 text-GreenBrown border-GreenBrown bg-CoralOrange px-5 rounded-md hover:scale-105 duration-300 font-semibold '>Submit</button>
+            <button className='h-10 border-2 text-GreenBrown border-GreenBrown bg-CoralOrange px-5 rounded-md hover:scale-105 duration-300 font-semibold ' onClick={(e) => handleSubmit(e)}>Submit</button>
           </div>
           
         </form>
