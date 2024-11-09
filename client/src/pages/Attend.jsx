@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from 'react';
 import Navigation_Attend from '../components/Navigation_Attend';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Attend = () => {
@@ -13,6 +13,8 @@ const Attend = () => {
   //required id for post request from url
   const { quizz_id } = useParams();
   const {user_id} = useParams();
+  const navigate = useNavigate();
+
 
   
 
@@ -82,6 +84,8 @@ const Attend = () => {
 
     try{
       await axios.post("http://localhost:3000/api/v2/quizz/sub", obj)
+      navigate(`/home/${user_id}`)
+
     }
     catch (error){
       console.error("Error submitting quiz", error)
@@ -161,7 +165,7 @@ const Attend = () => {
               ))
             )
           )}
-          <div className='w-[92%] mx-auto flex '>
+          <div className='w-[92%] mx-auto flex '  name ='sub'>
             <button className='h-10 border-2 text-GreenBrown border-GreenBrown bg-CoralOrange px-5 rounded-md hover:scale-105 duration-300 font-semibold ' onClick={(e) => handleSubmit(e)}>Submit</button>
           </div>
           

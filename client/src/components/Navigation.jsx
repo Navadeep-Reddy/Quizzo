@@ -17,7 +17,7 @@ const Navigation = () => {
       <ul className={`flex space-x-8 text-[20px] ${sticky? 'text-KindaWhite': 'text-GreenBrown'} duration-700 cursor-pointer`}>
         <li ><Link to = "Home" smooth = {true} duration = {500} offset = {0}>Home</Link></li>
         <li><Link to = "Available" smooth={true} duration={500} offset={-100}>Quizzes</Link></li>
-        <li>Statistics</li>
+        <li><Link to = "stat" smooth={true} duration={500} offset={-100}>Statistics</Link></li>
       </ul>
     </div>
   )

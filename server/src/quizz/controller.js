@@ -43,6 +43,15 @@ const getAllUsers = (req, res) => {
     })
 }
 
+const getScore = (req, res) => {
+    const id = parseInt(req.params.id)
+
+    pool.query(queries.getScore, [id], (error, results) => {
+        if (error) throw error;
+        res.json(results.rows);
+    })
+}
+
 const postSubmission = (req,res) => {
     const {quiz_id, user_id, score} = req.body;
     pool.query(queries.postSubmission, [quiz_id, user_id, score], (error, results) => {
@@ -75,4 +84,5 @@ module.exports = {
     getAllUsers,
     postSubmission,
     addUser,
+    getScore,
 } 

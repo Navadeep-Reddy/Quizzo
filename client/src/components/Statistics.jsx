@@ -47,7 +47,7 @@ const Statistics = () => {
   }
 
   return (
-    <div className='flex flex-col items-center h-[100vh] w-full bg-gradient-to-b from-KindaWhite p-5'>
+    <div className='flex flex-col items-center h-[100vh] w-full bg-gradient-to-b from-KindaWhite p-5' name='stat'>
       <h1 className="text-[50px] font-extrabold text-GreenBrown mb-10">Quiz Statistics</h1>
       
       {submissions.length === 0 ? (

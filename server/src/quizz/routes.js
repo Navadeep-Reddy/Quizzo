@@ -12,6 +12,8 @@ router.get('/title/:id', controller.getTitle);
 
 router.get('/users', controller.getAllUsers);
 
+router.get('/score/:id', controller.getScore)
+
 router.post('/sub',controller.postSubmission);
 
 router.post('/add', controller.addUser)
