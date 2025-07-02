@@ -6,7 +6,7 @@ Configure the connection pool in db.js <br>
 Run server.js in server directory <br>
 Run the react app
 
-# DML For Required Tables
+# DDL For Required Tables
 
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
